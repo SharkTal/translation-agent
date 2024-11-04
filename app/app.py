@@ -82,9 +82,9 @@ def huanik(
 
 def update_model(endpoint):
     endpoint_model_map = {
-        "Nvidia":"nvidia/llama-3.1-nemotron-70b-instruct",#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
+        "Nvidia":"nvidia/llama-3.1-nemotron-70b-instruct",
         "Groq": "llama3-70b-8192",
-        "ARK":"ep-20241017200001-b54zp",#ep-20241017072403-67pqv #ep-20241017200001-b54zp
+        "ARK":"ep-20241017200001-b54zp",# https://ark.cn-beijing.volces.com/api/v3/models
         "OpenAI": "gpt-4o-mini",
         "TogetherAI": "Qwen/Qwen2-72B-Instruct",
         "Ollama": "llama3",
