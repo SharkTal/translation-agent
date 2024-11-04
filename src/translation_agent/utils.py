@@ -20,7 +20,7 @@ MAX_TOKENS_PER_CHUNK = (
 def get_completion(
     prompt: str,
     system_message: str = "You are a helpful assistant.",
-    model: str = "gpt-4-turbo",
+    model: str = "gpt-4o-mini", #gpt-4o-mini
     temperature: float = 0.3,
     json_mode: bool = False,
 ) -> Union[str, dict]:
@@ -32,7 +32,7 @@ def get_completion(
         system_message (str, optional): The system message to set the context for the assistant.
             Defaults to "You are a helpful assistant.".
         model (str, optional): The name of the OpenAI model to use for generating the completion.
-            Defaults to "gpt-4-turbo".
+            Defaults to "gpt-4o-mini".
         temperature (float, optional): The sampling temperature for controlling the randomness of the generated text.
             Defaults to 0.3.
         json_mode (bool, optional): Whether to return the response in JSON format.

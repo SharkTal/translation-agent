@@ -82,8 +82,10 @@ def huanik(
 
 def update_model(endpoint):
     endpoint_model_map = {
+        "Nvidia":"nvidia/llama-3.1-nemotron-70b-instruct",#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
         "Groq": "llama3-70b-8192",
-        "OpenAI": "gpt-4o",
+        "ARK":"ep-20241017200001-b54zp",#ep-20241017072403-67pqv #ep-20241017200001-b54zp
+        "OpenAI": "gpt-4o-mini",
         "TogetherAI": "Qwen/Qwen2-72B-Instruct",
         "Ollama": "llama3",
         "CUSTOM": "",
@@ -237,7 +239,7 @@ with gr.Blocks(theme="soft", css=CSS, fill_height=True) as demo:
         with gr.Column(scale=1) as menubar:
             endpoint = gr.Dropdown(
                 label="Endpoint",
-                choices=["OpenAI", "Groq", "TogetherAI", "Ollama", "CUSTOM"],
+                choices=["OpenAI","ARK","Nvidia", "Groq", "TogetherAI", "Ollama", "CUSTOM"],
                 value="OpenAI",
             )
             choice = gr.Checkbox(
@@ -246,7 +248,7 @@ with gr.Blocks(theme="soft", css=CSS, fill_height=True) as demo:
             )
             model = gr.Textbox(
                 label="Model",
-                value="gpt-4o",
+                value="gpt-4o-mini",
             )
             api_key = gr.Textbox(
                 label="API_KEY",
@@ -267,7 +269,7 @@ with gr.Blocks(theme="soft", css=CSS, fill_height=True) as demo:
                 )
                 model2 = gr.Textbox(
                     label="Model",
-                    value="gpt-4o",
+                    value="gpt-4o-mini",
                 )
                 api_key2 = gr.Textbox(
                     label="API_KEY",
@@ -277,17 +279,17 @@ with gr.Blocks(theme="soft", css=CSS, fill_height=True) as demo:
             with gr.Row():
                 source_lang = gr.Textbox(
                     label="Source Lang",
-                    value="English",
+                    value="Chinese",
                     elem_classes="lang",
                 )
                 target_lang = gr.Textbox(
                     label="Target Lang",
-                    value="Spanish",
+                    value="English",
                     elem_classes="lang",
                 )
             switch_btn = gr.Button(value="🔄️")
             country = gr.Textbox(
-                label="Country", value="Argentina", max_lines=1
+                label="Country", value="US", max_lines=1
             )
             with gr.Accordion("Advanced Options", open=False):
                 max_tokens = gr.Slider(

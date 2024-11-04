@@ -37,6 +37,16 @@ def model_load(
     match endpoint:
         case "OpenAI":
             client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        case "ARK":
+            client = openai.OpenAI(
+                 api_key = os.environ.get("ARK_API_KEY"),
+                 base_url = "https://ark.cn-beijing.volces.com/api/v3",
+            )
+        case "Nvidia":
+            client = openai.OpenAI(
+                api_key = os.environ.get("NVIDIA_API_KEY"),
+                base_url = "https://integrate.api.nvidia.com/v1",
+            )
         case "Groq":
             client = openai.OpenAI(
                 api_key=api_key if api_key else os.getenv("GROQ_API_KEY"),
@@ -88,7 +98,7 @@ def rate_limit(get_max_per_minute):
 def get_completion(
     prompt: str,
     system_message: str = "You are a helpful assistant.",
-    model: str = "gpt-4-turbo",
+    model: str = "gpt-4o-mini",
     temperature: float = 0.3,
     json_mode: bool = False,
 ) -> Union[str, dict]:
